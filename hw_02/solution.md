@@ -73,3 +73,17 @@
   *  filial_id integer [foreign key, not null]
   *  personal_id integer [foreign key, not null]
 ## Создаем ограничения по выбранным полям.
+```sql
+    ALTER TABLE clients
+    ALTER COLUMN first_name SET NOT NULL,
+    ALTER COLUMN last_name SET NOT NULL,
+    ALTER COLUMN date_registry SET NOT NULL,
+    ALTER COLUMN loyalty_id SET NOT NULL,
+    ALTER COLUMN age SET NOT NULL,
+    ALTER COLUMN phone SET NOT NULL,
+    ADD CONSTRAINT CHECK (date_registry >= now()),
+    ADD CONSTRAINT CHECK (age > 10),
+    ADD CONSTRAINT UNIQUE (phone),
+    ADD CONSTRAINT FOREIGN KEY (loyalty_id) REFERENCES loyalty_program (loyalty_id);
+```
+Для всех остальных таблиц по аналогии.
