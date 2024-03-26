@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: otusstudent
+      POSTGRES_PASSWORD: otuspassword
+      POSTGRES_DB: otusDBpsql
+    ports:
+      - "10.128.0.17:5432:5432"
