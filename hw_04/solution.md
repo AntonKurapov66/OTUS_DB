@@ -1,9 +1,10 @@
 * Используя операторы DDL создайте на примере схемы интернет-магазина:
 
   * Базу данных.
-    	```sql
-		create database vertebraDB owner otusstudent; --создание БД
-	```
+
+    ```sql
+	create database vertebraDB owner otusstudent; --создание БД
+    ```
 
   * Табличные пространства и роли.
   * Схему данных.
