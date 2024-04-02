@@ -15,19 +15,17 @@
 	CREATE ROLE worker with LOGIN password 'test'; --создание пользователя работника
     ```
     ```sql
-    	GRANT SELECT ON ALL TABLES IN SCHEMA only_vertebra TO worker; --предоставление на чтение данных для пользователя worker
-    ```
-    ```sql
-	ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц
+
+    GRANT SELECT ON ALL TABLES IN SCHEMA only_vertebra TO worker; --предоставление на чтение данных для пользователя worker
+
+    ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц
     ```
   * Схему данных.
+
+    ```sql
+    	CREATE schema only_vertebra;-- создание схемы под таблицы 
+    ```
   * Таблицы своего проекта, распределив их по схемам и табличным пространствам.
-
-
-
-
-CREATE schema only_vertebra;-- создание схемы под таблицы 
-
 
 ---Создание таблиц
  
