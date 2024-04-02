@@ -6,6 +6,8 @@
 	create database vertebraDB owner otusstudent; --создание БД
     ```
 
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_04/img/01_0.PNG)
+
   * Табличные пространства и роли.
 
     ```sql
@@ -18,6 +20,8 @@
 
     ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц
     ```
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_04/img/01_1.PNG)
+    
   * Схему данных.
 
     ```sql
@@ -113,3 +117,4 @@ CREATE INDEX idx_orders_total_price ON only_vertebra.orders(total_price_order);
 CREATE INDEX idx_orders_date_order ON only_vertebra.orders(date_order);
 
 ```
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_04/img/01_2.PNG)
