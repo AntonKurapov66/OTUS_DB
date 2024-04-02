@@ -24,9 +24,10 @@
     	CREATE schema only_vertebra;-- создание схемы под таблицы 
     ```
   * Таблицы своего проекта, распределив их по схемам и табличным пространствам.
+```sql
 
 ---Создание таблиц
- 
+
 CREATE TABLE only_vertebra.clients (
     client_id integer primary key,
 	first_name varchar(100) not null,
@@ -81,16 +82,12 @@ CREATE TABLE only_vertebra.filial_personal (
 	personal_id integer not null
 );
 
-
-
 SELECT * FROM INFORMATION_SCHEMA.tables where table_schema = 'only_vertebra'; --- проверка таблиц
 
 ---Добавление Foreign key
 
 ALTER TABLE only_vertebra.clients
 ADD CONSTRAINT loyalty1_x_key FOREIGN KEY (loyalty_id) REFERENCES only_vertebra.loyalty_program(loyalty_id);
-
-
 
 ALTER TABLE only_vertebra.orders
 ADD CONSTRAINT client1_x_key FOREIGN KEY (client_id) REFERENCES only_vertebra.clients(client_id);
@@ -100,8 +97,6 @@ ADD CONSTRAINT personal1_x_key FOREIGN KEY (personal_id) REFERENCES only_vertebr
 
 ALTER TABLE only_vertebra.orders
 ADD CONSTRAINT services1_x_key FOREIGN KEY (services_id) REFERENCES only_vertebra.services(services_id);
-
-
 
 ALTER TABLE only_vertebra.filial_personal
 ADD CONSTRAINT filial_x_key FOREIGN KEY (filial_id) REFERENCES only_vertebra.filial_branch(filial_id);
@@ -116,3 +111,5 @@ CREATE INDEX idx_clients_phone ON only_vertebra.clients(phone);
 CREATE INDEX idx_orders_total_price ON only_vertebra.orders(total_price_order);
 
 CREATE INDEX idx_orders_date_order ON only_vertebra.orders(date_order);
+
+```
