@@ -2,7 +2,7 @@
 
   * Базу данных.
     	```sql
-	create database vertebraDB owner otusstudent; --создание БД
+		create database vertebraDB owner otusstudent; --создание БД
 	```
 
   * Табличные пространства и роли.
