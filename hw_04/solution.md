@@ -7,22 +7,22 @@
     ```
 
   * Табличные пространства и роли.
+
+    ```sql
+    	create ROLE boss SUPERUSER LOGIN PASSWORD 'boss'; --создание гл.пользователя сети массажных салонов
+	CREATE ROLE worker with LOGIN password 'test'; --создание пользователя работника
+
+    	GRANT SELECT ON ALL TABLES IN SCHEMA only_vertebra TO worker; --предоставление на чтение данных для пользователя worker
+	ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц
+    ```
   * Схему данных.
   * Таблицы своего проекта, распределив их по схемам и табличным пространствам.
 
 
 
-```sql
-create database vertebraDB owner otusstudent; --создание БД
-```
-
-create ROLE boss SUPERUSER LOGIN PASSWORD 'boss'; --создание гл.пользователя сети массажных салонов
-CREATE ROLE worker with LOGIN password 'test'; --создание пользователя работника
 
 CREATE schema only_vertebra;-- создание схемы под таблицы 
 
-GRANT SELECT ON ALL TABLES IN SCHEMA only_vertebra TO worker; --предоставление на чтение данных для пользователя worker
-ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц в схеме only_vertebra
 
 ---Создание таблиц
  
