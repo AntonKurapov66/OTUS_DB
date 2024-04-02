@@ -9,13 +9,11 @@
   * Табличные пространства и роли.
 
     ```sql
-    	create ROLE boss SUPERUSER LOGIN PASSWORD 'boss'; --создание гл.пользователя сети массажных салонов
-    ```
-    ```sql
-	CREATE ROLE worker with LOGIN password 'test'; --создание пользователя работника
-    ```
-    ```sql
 
+    create ROLE boss SUPERUSER LOGIN PASSWORD 'boss'; --создание гл.пользователя сети массажных салонов
+
+    CREATE ROLE worker with LOGIN password 'test'; --создание пользователя работника
+  
     GRANT SELECT ON ALL TABLES IN SCHEMA only_vertebra TO worker; --предоставление на чтение данных для пользователя worker
 
     ALTER DEFAULT PRIVILEGES IN SCHEMA only_vertebra GRANT SELECT ON TABLES TO worker; --предоставление прив. на чтение всех новых создающихся таблиц
