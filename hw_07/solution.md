@@ -16,16 +16,16 @@
    ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_1.PNG)
   
 * написать запрос суммы очков с группировкой и сортировкой по годам
-  ```sgl
+  ```sql
   select  year_game as "Год", sum(points) as "Сумма очков"
   from statistic 
   group by year_game 
-  order by ""Год" desc;
+  order by "Год" desc;
   ```
- ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_2.PNG)
+ ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_21.PNG)
   
 * написать cte показывающее тоже самое
-  ```sgl
+  ```sql
   WITH YearlyPoints AS (
   SELECT year_game AS "Год", SUM(points) AS "Сумма очков"
   FROM statistic
@@ -35,10 +35,10 @@
   FROM YearlyPoints
   ORDER BY "Год" desc;
   ```
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_3.PNG)
+  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_31.PNG)
   
 * используя функцию LAG вывести кол-во очков по всем игрокам за текущий код и за предыдущий.
-  ```sgl
+  ```sql
   SELECT player_name, year_game AS "Год",
   points AS "Очки в этот год",
   LAG(points) OVER (PARTITION BY player_name ORDER BY year_game) AS "Очки в предыдущем году"
