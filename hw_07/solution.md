@@ -22,7 +22,7 @@
   group by year_game 
   order by ""Год" desc;
   ```
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_2.PNG)
+ ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_2.PNG)
   
 * написать cte показывающее тоже самое
   ```sgl
