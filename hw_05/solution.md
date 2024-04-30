@@ -1,47 +1,39 @@
-* Создайте таблицу и наполните ее данными
+* Напишите запрос по своей базе с регулярным выражением, добавьте пояснение, что вы хотите найти.
   ```sql
-    CREATE TABLE statistic(
-      player_name VARCHAR(100) NOT NULL,
-      player_id INT NOT NULL,
-      year_game SMALLINT NOT NULL CHECK (year_game > 0),
-      points DECIMAL(12,2) CHECK (points >= 0),
-      PRIMARY KEY (player_name,year_game));
+  SELECT * FROM clients WHERE first_name ~ '^А'; --найти всех клиентов, чьё имя начинается на "А"  
   ```
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_0.PNG)
-  
-* заполнить данными
+* Напишите запрос по своей базе с использованием LEFT JOIN и INNER JOIN, как порядок соединений в FROM влияет на результат? Почему?
   ```sql
-  INSERT INTO statistic(player_name, player_id, year_game, points) VALUES ('Mike',1,2018,18), ('Jack',2,2018,14), ('Jackie',3,2018,30), ('Jet',4,2018,30), ('Luke',1,2019,16), ('Mike',2,2019,14), ('Jack',3,2019,15), ('Jackie',4,2019,28), ('Jet',5,2019,25), ('Luke',1,2020,19), ('Mike',2,2020,17), ('Jack',3,2020,18), ('Jackie',4,2020,29), ('Jet',5,2020,27);
+  SELECT c.first_name, c.last_name, s.name
+  from clients as c
+  LEFT JOIN orders as o ON c.client_id = o.client_id
+  INNER JOIN services as s ON  s.services_id= o.services_id; 
+  --Получить список всех клиентов и услуг, которые были заказаны,но при этом некоторые клиенты могут не воспользоваться ни одной услугой.
+  --Здесь, если поменять местами LEFT JOIN и INNER JOIN, то результатом запроса станут только клиенты, которые пользовались какой-либо услугой, с LEFT JOIN мы 
+  получаем всех клиентов, включая тех, кто не пользовался услугой. 
   ```
-   ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_1.PNG)
-  
-* написать запрос суммы очков с группировкой и сортировкой по годам
+* Напишите запрос на добавление данных с выводом информации о добавленных строках.
   ```sql
-  select  year_game as "Год", sum(points) as "Сумма очков"
-  from statistic 
-  group by year_game 
-  order by "Год" desc;
+  INSERT INTO loyalty_program  (loyalty_id,name_loyalty,discount_size)
+  VALUES (1, 'VIP', 20)
+  RETURNING loyalty_id,name_loyalty,discount_size;  
   ```
- ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_21.PNG)
-  
-* написать cte показывающее тоже самое
   ```sql
-  WITH YearlyPoints AS (
-  SELECT year_game AS "Год", SUM(points) AS "Сумма очков"
-  FROM statistic
-  GROUP BY year_game
-    )
-  SELECT "Год", "Сумма очков"
-  FROM YearlyPoints
-  ORDER BY "Год" desc;
+  INSERT INTO clients (client_id ,first_name,last_name,date_registry ,loyalty_id , age_clients, phone)
+  VALUES (1, 'Антон', 'Курапов', '2024-04-30 19:30:42','1', '25', 9176)
+  RETURNING first_name, last_name, date_registry, age_clients, phone;  
   ```
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_31.PNG)
-  
-* используя функцию LAG вывести кол-во очков по всем игрокам за текущий код и за предыдущий.
+* Напишите запрос с обновлением данные используя UPDATE FROM.
   ```sql
-  SELECT player_name, year_game AS "Год",
-  points AS "Очки в этот год",
-  LAG(points) OVER (PARTITION BY player_name ORDER BY year_game) AS "Очки в предыдущем году"
-  from statistic;
+  UPDATE clients 
+  SET age_clients  = 26 , date_registry = '2024-04-30 18:50:42'
+  FROM loyalty_program 
+  WHERE clients.loyalty_id = loyalty_program.loyalty_id  AND client_id  = 1;  
   ```
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_4.PNG)
+* Напишите запрос для удаления данных с оператором DELETE используя join с другой таблицей с помощью using.
+  ```sql
+  DELETE FROM clients
+  USING loyalty_program
+  WHERE clients.loyalty_id = loyalty_program.loyalty_id
+  AND loyalty_program.loyalty_id = 1;  
+  ```
