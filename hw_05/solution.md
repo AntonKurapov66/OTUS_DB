@@ -28,12 +28,14 @@
   UPDATE clients 
   SET age_clients  = 26 , date_registry = '2024-04-30 18:50:42'
   FROM loyalty_program 
-  WHERE clients.loyalty_id = loyalty_program.loyalty_id  AND client_id  = 1;  
+  WHERE clients.loyalty_id = loyalty_program.loyalty_id  AND loyalty_id  = 1;
+  -- Изменить возраст и дату регистрации всех VIP клиентов  
   ```
 * Напишите запрос для удаления данных с оператором DELETE используя join с другой таблицей с помощью using.
   ```sql
   DELETE FROM clients
   USING loyalty_program
   WHERE clients.loyalty_id = loyalty_program.loyalty_id
-  AND loyalty_program.loyalty_id = 1;  
+  AND loyalty_program.loyalty_id = 1;
+  --Удалить всех VIP клиентов
   ```
