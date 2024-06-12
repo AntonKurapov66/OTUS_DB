@@ -19,9 +19,9 @@
 ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_5.PNG)
 
 ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_5_1.PNG)
-
+* master
 ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_6.PNG)
-
+* replica
 ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_6_1.PNG)
 
 ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_6_2.PNG)
