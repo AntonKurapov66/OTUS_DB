@@ -40,4 +40,23 @@
   * На нем же создать публикацию этой таблицы
   * На новом кластере подписаться на эту публикацию
   * Убедиться что она среплицировалась. Добавить записи в эту таблицу на основном сервере и убедиться, что они видны на логической реплике
-  ![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_07/img/01_0.PNG)
+
+* master
+  
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7.PNG)
+
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7_1.PNG)
+
+* logical_replica
+
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7_1_1.PNG)
+
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7_2.PNG)
+
+* master
+
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7_3.PNG)
+
+* logical_replica
+
+![alt text](https://github.com/AntonKurapov66/OTUS_DB/blob/main/hw_08/img/01_7_4.PNG)
